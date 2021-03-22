@@ -33,7 +33,7 @@ export default function BuyBeer(props) {
       <div className="dash-grid">
         <section className="buy-beer dash-comp">{/* <AllBeers beers={props.beers} /> */}</section>
 
-        <section className="dash-comp closing">
+        <section className={props.step === 0 ? "dash-comp closing step0" : props.step === 1 ? "dash-comp closing step1" : "dash-comp closing"}>
           <Time data={props.data} />
         </section>
 
@@ -56,23 +56,11 @@ export default function BuyBeer(props) {
           <br />
           May we take your order?
         </h2>
-        <p className="beer-desc">
-          Be aware of not all beers are on tap at all times, so the beers you see here are the beers we have on tap at the moment.
-        </p>
+        <p className="beer-desc">Be aware of not all beers are on tap at all times, so the beers you see here are the beers we have on tap at the moment.</p>
         <p className="beer-desc">All beers are served in 0.5L glasses</p>
 
         {cleanArr.map((beer, index) => {
-          return (
-            <Beer
-              key={index}
-              name={beer.name}
-              amount={beer.amount}
-              onUpdate={props.orderChanged}
-              vol={beer.alc}
-              cat={beer.category}
-              prices={prices}
-            />
-          );
+          return <Beer key={index} name={beer.name} amount={beer.amount} onUpdate={props.orderChanged} vol={beer.alc} cat={beer.category} prices={prices} />;
         })}
         <h2>Order</h2>
         {cleanArr

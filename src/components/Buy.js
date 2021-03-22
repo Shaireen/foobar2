@@ -6,6 +6,7 @@ export default function Buy(props) {
   const cleanArr = [];
   //   const [step, setStep] = useState(0);
   const [prices, setPrice] = useState([]);
+
   useEffect(() => {
     checkPrice(setPrice);
   }, []);
@@ -16,6 +17,10 @@ export default function Buy(props) {
       cleanArr.push(obj);
     }
   });
+
+  let orderArray = cleanArr.filter((order) => order.amount > 0);
+  console.log(orderArray);
+
   return (
     <>
       <section className={props.step === 0 ? "block buy-beer dash-comp" : "hidden buy-beer dash-comp"}>
@@ -54,18 +59,17 @@ export default function Buy(props) {
               .filter((order) => order.amount > 0)
               .map((beer, index) => {
                 return (
-                  <div className="order-list">
-                    <p className="bold" key={index}>
-                      {beer.amount} x
-                    </p>
+                  <div className="order-list" key={index}>
+                    <p className="bold">{beer.amount} x</p>
                     <p>{beer.name}</p>
                   </div>
                 );
               })}
           </div>
           <button
-            className={props.step === 0 ? "block buy-beer dash-comp btn-arrow buttons" : "hidden buy-beer dash-comp btn-arrow buttons"}
+            className={props.step === 0 ? "block dash-comp btn-arrow buttons" : "hidden dash-comp btn-arrow buttons"}
             onClick={() => props.changeStep(1)}
+            disabled={orderArray.length < 1}
           >
             <span>Proceed</span>
           </button>

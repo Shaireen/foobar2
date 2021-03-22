@@ -1,16 +1,10 @@
 import React, { useRef, useState } from "react";
-import { post } from "./rest";
 
 export default function Payment(props) {
   const form = useRef(null);
   const [enabled, setEnable] = useState(false);
 
-  function submit(e) {
-    e.preventDefault();
-    const payload = props.orders.filter((order) => order.amount > 0);
-    console.log(payload);
-    post(payload, console.log);
-  }
+  // clicking submit will post the payload to the database
 
   function validate(evt) {
     setEnable(form.current.checkValidity());
@@ -21,7 +15,7 @@ export default function Payment(props) {
       <div className="all-beers">
         <h1>Payment details</h1>
 
-        <form className="card-info step2" ref={form} onSubmit={submit}>
+        <form className="card-info step2" ref={form} onSubmit={props.submit}>
           <h2 className="information">Credit Card Information</h2>
           <input className="cardname" type="text" name="smartname" placeholder="&nbsp;" required onChange={validate} />
           <label htmlFor="smartname" className="label1">
@@ -76,7 +70,7 @@ export default function Payment(props) {
             Cvv
           </label>
 
-          <button className="buttons submit-button" type="submit" disabled={!enabled} onClick={() => props.changeStep(2)}>
+          <button className="buttons submit-button" type="submit" disabled={!enabled}>
             Place Order
           </button>
         </form>

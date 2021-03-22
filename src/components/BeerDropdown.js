@@ -13,23 +13,29 @@ export default function BeerDropdown(props) {
 
   const thisBeer = props.prices.filter((beer) => beer.name === props.name);
   const beerPrice = thisBeer[0] ? thisBeer[0].price : "";
+  const beerImg = thisBeer[0] ? thisBeer[0].img : "";
   // console.log(beerPrice);
 
   return (
     <div className="one-beer" onClick={handleToggle}>
       <div className="beer-container" onClick={handlePlusOne}>
-        <h2>
-          {props.name}
-          <span className={isPlus ? "arrow-down" : "arrow-up"}>&#8963;</span>
-        </h2>
-        <div className="beer-cat">
-          <p>{props.cat}</p>
+        <div className="beer-grid">
+          <img src={beerImg} alt="beer" className="beer-small" />
+          <div className="grid-wrap">
+            <h2>
+              {props.name}
+              <span className={isPlus ? "arrow-down" : "arrow-up"}>&#8963;</span>
+            </h2>
+            <div className="beer-cat">
+              <p>{props.cat}</p>
+            </div>
+            <div className="beer-alc">
+              <p className="beer-percent">{props.vol}%</p>
+              <h2 className="beer-price">{beerPrice} DKK</h2>
+            </div>
+          </div>
         </div>
-        <div className="beer-alc">
-          <p className="beer-percent">{props.vol}%</p>
-          <h2 className="beer-price">{beerPrice} DKK</h2>
-        </div>
-        <div className={isActive ? "hidden" : "block"}>
+        <div className={isActive ? "hidden beer-additional" : "block beer-additional"}>
           <div className="col">
             <div className="aroma">
               <h3 className="beer-title">Aroma</h3>

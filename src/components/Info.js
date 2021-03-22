@@ -20,12 +20,12 @@ export default function Info(props) {
 	c0-9.7,3.9-18.4,10.2-24.8C16.6,38.9,25.3,35,35,35h25C79.3,35,95,19.3,95,0z"
           />
         </svg>
-        <div className="dash-grid">
+        <div className="dash-grid infopage">
           <section className="beer-info dash-comp">
             <AllBeers beers={props.beers} />
           </section>
 
-          <section className="dash-comp closing">
+          <section className={props.page === "beer" ? "dash-comp closing beerpage" : "dash-comp closing"}>
             <Time data={props.data} changeTheme={props.changeTheme} />
           </section>
 

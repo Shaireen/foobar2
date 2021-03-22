@@ -1,42 +1,52 @@
 [
     {
         "name": "El Hefe",
-        "price": 40
+        "price": 40,
+        "img": "elhefe.png"
     },
     {
         "name": "Fairy Tale Ale",
-        "price": 53
+        "price": 53,
+        "img": "fairytaleale.png"
     },
     {
         "name": "GitHop",
-        "price": 60
+        "price": 60,
+        "img": "githop.png"
     },
     {
         "name": "Hollaback Lager",
-        "price": 50
+        "price": 50,
+        "img": "hollabacklager.png"
     },
     {
         "name": "Hoppily Ever After",
-        "price": 45
+        "price": 45,
+        "img": "hoppilyeverafter.png"
     },
     {
         "name": "Mowintime",
-        "price": 40
+        "price": 40,
+        "img": "mowintime.png"
     },
     {
         "name": "Row 26",
-        "price": 55
+        "price": 55,
+        "img": "row26.png"
     },
     {
         "name": "Ruined Childhood",
-        "price": 70
+        "price": 70,
+        "img": "ruinedchildhood.png"
     },
     {
         "name": "Sleighride",
-        "price": 65
+        "price": 65,
+        "img": "sleighride.png"
     },
     {
         "name": "Steampunk",
-        "price": 45
+        "price": 45,
+        "img": "steampunk.png"
     }
 ]

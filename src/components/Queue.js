@@ -13,7 +13,7 @@ export default function Queue(props) {
       <div className="serving-container">
         {props.data.serving.map((person) => {
           return (
-            <figure>
+            <figure key={person.id}>
               <img className="serving-rocket" src="serving-rocket.png" alt="serving rocket" />
               <figcaption>Nr. {person.id}</figcaption>
             </figure>
@@ -28,7 +28,7 @@ export default function Queue(props) {
 
         <div className="rocket-container">
           {props.data.queue.map((person) => {
-            return <img className="queue-rocket" src="queue-rocket.png" alt="queue rocket" />;
+            return <img className="queue-rocket" src="queue-rocket.png" alt="queue rocket" key={person.id + 1} />;
           })}
         </div>
       </div>

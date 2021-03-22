@@ -27,13 +27,12 @@ export default function Popular(props) {
 
   // console.log(cleanArr);
 
-  // console.log(sortedBeer);
   let popularBeers = [];
 
   showPopular();
   function showPopular() {
     for (let i = 0; i < 3; i++) {
-      popularBeers.push(sortedBeer[i]);
+      popularBeers.push(cleanArr[i]);
     }
   }
   return (
@@ -41,7 +40,7 @@ export default function Popular(props) {
       {popularBeers.map((beer) => {
         let beerIndex = popularBeers.findIndex((obj) => obj.beer === beer.beer);
         return (
-          <div className="beer-pop">
+          <div className="beer-pop" key={beer.beer}>
             <p className="bold">{beerIndex + 1}. </p>
             <p>{beer.beer}</p>
           </div>

@@ -8,6 +8,7 @@ export default function Fullform(props) {
   const [step, setStep] = useState(0);
   const cleanArr = [];
   const [prices, setPrice] = useState([]);
+  const [orderInfo, setOrderInfo] = useState({});
   useEffect(() => {
     checkPrice(setPrice);
   }, []);
@@ -15,6 +16,7 @@ export default function Fullform(props) {
   function submit(e) {
     e.preventDefault();
     const payload = props.orders.filter((order) => order.amount > 0);
+    orderInfo = payload;
     console.log(payload);
     post(payload, console.log);
   }

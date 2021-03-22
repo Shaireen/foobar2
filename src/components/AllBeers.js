@@ -28,6 +28,7 @@ export default function AllBeers(props) {
             flavor={beer.description.flavor}
             mouthfeel={beer.description.mouthfeel}
             overall={beer.description.overallImpression}
+            key={beer.name}
           />
         );
       })}
